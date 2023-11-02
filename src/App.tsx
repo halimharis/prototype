@@ -73,13 +73,7 @@ export default function App() {
               {isParticipant && currentP === null && (
                 <ProfileFormModal setCurrentPartipant={setCurrentParticipant} />
               )}
-              {currentP && (
-                <InstructionModal
-                  currentP={currentP}
-                  currentStep={step}
-                  nextStep={nextStep}
-                />
-              )}
+              {currentP && <InstructionModal />}
             </StepTwoPassed.Provider>
           </StepContext.Provider>
         </CurrentUserContext.Provider>
