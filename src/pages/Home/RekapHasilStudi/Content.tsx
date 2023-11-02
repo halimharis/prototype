@@ -54,8 +54,9 @@ export default function Content() {
         <tbody>
           {dataMataKuliah.map((matakuliah, index) => (
             <tr className="even:bg-gray-200" key={index}>
-              {Object.entries(matakuliah).map((values) => (
+              {Object.entries(matakuliah).map((values, index) => (
                 <td
+                  key={index}
                   className={`border border-gray border-opacity-30 ${
                     values[0] === "Nama" && "text-left pl-1"
                   } leading-4 text-xs`}
