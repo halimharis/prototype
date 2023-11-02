@@ -143,7 +143,7 @@ export default function InstructionModal({
       <div className="bg-white py-4 rounded-md px-4 flex flex-col z-10 max-w-sm min-w-[300px]">
         <h2 className="font-bold text-lg pb-3">{currentContent.title}</h2>
         {currentContent.description.map((desc, index) => (
-          <p key={index} className=" first:pt-0 last-of-type:mb-4">
+          <p key={index} className=" first:pt-0 mb-1 last-of-type:mb-4">
             {desc}
           </p>
         ))}
