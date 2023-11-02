@@ -2,7 +2,8 @@ import { useContext, useRef } from "react";
 import printImage from "../../../assets/print.gif";
 import { useReactToPrint } from "react-to-print";
 import { dataMataKuliah } from "../../../utlils";
-import { StepContext, StepTwoPassed } from "../../../App";
+import { CurrentDesign, StepContext, StepTwoPassed } from "../../../App";
+import setpdf from "../../../assets/setpdf.png";
 
 export default function Content() {
   const componentRef = useRef(null);
@@ -19,13 +20,24 @@ export default function Content() {
     if (step === 3) togglePassed();
   };
 
+  const { isKontrol } = useContext(CurrentDesign);
+
   return (
     <div className="flex flex-col mt-14 relative">
-      <img
-        onClick={handleClick}
-        src={printImage}
-        className="absolute -top-8 right-0 scale-90 hover:cursor-pointer"
-      />
+      <div className="flex absolute -top-8 right-0">
+        {isKontrol !== true && (
+          <img
+            onClick={handleClick}
+            src={setpdf}
+            className="scale-75 hover:cursor-pointer"
+          />
+        )}
+        <img
+          onClick={handleClick}
+          src={printImage}
+          className="scale-90 hover:cursor-pointer"
+        />
+      </div>
       <h1 className="text-center font-bold mb-2">
         DAFTAR MATA KULIAH (SELURUH)
       </h1>
@@ -53,7 +65,10 @@ export default function Content() {
         </thead>
         <tbody>
           {dataMataKuliah.map((matakuliah, index) => (
-            <tr className="even:bg-gray-200" key={index}>
+            <tr
+              className={`${isKontrol !== true && "even:bg-gray-200"}`}
+              key={index}
+            >
               {Object.entries(matakuliah).map((values, index) => (
                 <td
                   key={index}
