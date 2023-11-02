@@ -43,7 +43,7 @@ export default function InstructionModal({
         button: {
           label: "OKE, LANJUTKAN",
           onClick: () => {
-            if (isKontrol !== null) nextStep;
+            if (isKontrol !== null) nextStep();
           },
         },
       },
