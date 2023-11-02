@@ -60,7 +60,7 @@ export default function ProfileFormModal({
           <label className="flex flex-col-reverse relative">
             <input
               placeholder=" "
-              className="border rounded-sm py-[6px] pt-5 px-4 peer"
+              className="border-2 placeholder-shown:border-gray-300 border-gray-600 rounded-md py-[6px] pt-5 px-4 peer"
               {...register("Nim", { required: true })}
             />
             <span className="absolute peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:left-6 left-4 peer-focus-within:top-[6px]  peer-focus-within:left-4 peer-focus-within:translate-y-0 top-[6px] translate-y-0 transition-all opacity-60 text-xs peer-focus-within:text-xs">
@@ -70,7 +70,7 @@ export default function ProfileFormModal({
           <label className="flex flex-col-reverse relative">
             <input
               placeholder=" "
-              className="border rounded-sm py-[6px] pt-5 px-4 peer"
+              className="border-2 placeholder-shown:border-gray-300 border-gray-600 rounded-md py-[6px] pt-5 px-4 peer"
               {...register("Nama", { required: true })}
             />
             <span className="absolute peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:left-6 left-4 peer-focus-within:top-[6px]  peer-focus-within:left-4 peer-focus-within:translate-y-0 top-[6px] translate-y-0 transition-all opacity-60 text-xs peer-focus-within:text-xs">
@@ -80,7 +80,7 @@ export default function ProfileFormModal({
           <label className="flex flex-col-reverse relative">
             <input
               placeholder=" "
-              className="border rounded-sm py-[6px] pt-5 px-4 peer"
+              className="border-2 placeholder-shown:border-gray-300 border-gray-600 rounded-md py-[6px] pt-5 px-4 peer"
               {...register("Jurusan", { required: true })}
             />
             <span className="absolute peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:left-6 left-4 peer-focus-within:top-[6px]  peer-focus-within:left-4 peer-focus-within:translate-y-0 top-[6px] translate-y-0 transition-all opacity-60 text-xs peer-focus-within:text-xs">
