@@ -4,6 +4,7 @@ import {
   CurrentUserContext,
   StepContext,
   StepTwoPassed,
+  TimeContext,
 } from "../App";
 import InstructionTaskZeroHelper from "../component/InstructionModal/InstructionTaskZeroHelper";
 import InstructionTaskTwoHelper from "../component/InstructionModal/InstructionTaskTwoHelper";
@@ -14,6 +15,7 @@ export const useModalContent = (closeFunction: () => void) => {
   const { isKontrol } = useContext(CurrentDesign);
   const { nextStep, step } = useContext(StepContext);
   const { passed } = useContext(StepTwoPassed);
+  const { initCount } = useContext(TimeContext);
 
   const content = [
     {
@@ -40,6 +42,7 @@ export const useModalContent = (closeFunction: () => void) => {
         label: "OKE, MENGERTI",
         onClick: () => {
           closeFunction();
+          initCount();
         },
       },
     },
@@ -69,6 +72,7 @@ export const useModalContent = (closeFunction: () => void) => {
         label: "OKE, MENGERTI",
         onClick: () => {
           closeFunction();
+          initCount();
         },
       },
     },
@@ -92,6 +96,7 @@ export const useModalContent = (closeFunction: () => void) => {
         label: "OKE, MENGERTI",
         onClick: () => {
           closeFunction();
+          initCount();
         },
       },
     },

@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { CurrentUserContext, StepContext } from "../../App";
+import { CurrentUserContext, StepContext, TimeContext } from "../../App";
 
 interface IForm {
-  "Jawaban Task 2": number;
+  "Jawaban Task 3": number;
 }
 
 export default function InstructionTaskThreeHelper() {
@@ -16,7 +16,9 @@ export default function InstructionTaskThreeHelper() {
 
   const { nextStep } = useContext(StepContext);
 
-  const onSubmit: SubmitHandler<IForm> = (dataResponden) => {
+  const { countTime } = useContext(TimeContext);
+
+  const onSubmit: SubmitHandler<IForm> = async (dataResponden) => {
     const name = currentUser?.Nama;
 
     return axios
@@ -24,7 +26,9 @@ export default function InstructionTaskThreeHelper() {
         `https://sheet.best/api/sheets/3dd03447-2ad1-492a-afb8-5b5b9388edef/Nama/${name}`,
         dataResponden
       )
-      .then(() => nextStep());
+      .then(() => {
+        nextStep();
+      });
   };
 
   const { isSubmitting } = formState;
@@ -34,10 +38,11 @@ export default function InstructionTaskThreeHelper() {
       <input
         placeholder="40"
         className="w-full rounded-md border border-gray-400 px-4 py-2"
-        {...register("Jawaban Task 2", { required: true })}
+        {...register("Jawaban Task 3", { required: true })}
       />
       <button
         type="submit"
+        onClick={countTime}
         disabled={isSubmitting}
         className="px-4 rounded-md text-sm border-2 border-blue  text-blue hover:bg-blue hover:text-white disabled:bg-white disabled:opacity-40 disabled:text-blue"
       >

@@ -1,13 +1,21 @@
 import { useContext } from "react";
 import addcourse from "../../../../assets/addcourse.gif";
-import { StepContext } from "../../../../App";
+import { StepContext, TimeContext } from "../../../../App";
 
 export default function KrsButtonTreatment() {
   const { step, nextStep } = useContext(StepContext);
+  const { countTime } = useContext(TimeContext);
+
+  const onClick = () => {
+    if (step === 1) {
+      nextStep();
+      countTime();
+    }
+  };
 
   return (
     <button
-      onClick={step === 1 ? nextStep : () => {}}
+      onClick={onClick}
       className="ml-auto self-end flex gap-2 items-center py-2 pl-3 pr-4 border border-gray bg-[#F0F0F0] rounded-md hover:bg-[#dddddd] min-w-max"
     >
       <img src={addcourse} />
