@@ -86,7 +86,7 @@ export default function App() {
 
   const initCount = () => setStartTime(new Date());
 
-  const toggleReady = () => setIsStepThreeReady((ready) => !ready);
+  const toggleReady = () => setIsStepThreeReady(true);
 
   useEffect(() => {
     if (step !== 1) return;

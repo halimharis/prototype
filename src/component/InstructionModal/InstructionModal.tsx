@@ -45,7 +45,7 @@ export default function InstructionModal() {
         <button
           disabled={currentContent.button?.disabled === true}
           onClick={currentContent.button?.onClick}
-          className="py-3 font-bold px-3 border rounded-md bg-blue text-white hover:opacity-90"
+          className="py-3 font-bold px-3 border rounded-md bg-blue text-white hover:opacity-90 disabled:opacity-50"
         >
           {currentContent.button?.label}
         </button>

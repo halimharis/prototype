@@ -2,7 +2,7 @@ import unduhPanduan from "../../../assets/unduhpanduan.png";
 
 export default function Panduan() {
   return (
-    <div className="flex px-3 self-end pt-2 gap-2">
+    <div className="flex px-3 self-end gap-2">
       <div className="flex flex-col items-end justify-center ">
         <p className="text-xs">
           Klik <strong>&#11208; GANTI KATA SANDI</strong> untuk mengubah kata
