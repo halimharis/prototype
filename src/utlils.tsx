@@ -1,3 +1,19 @@
+interface IParamsObject {
+  key: string;
+  value: string;
+}
+
+export const callApi = async (action: string, params: IParamsObject[]) => {
+  const BASE_URL =
+    "https://script.google.com/macros/s/AKfycbxHwj0SCCLWaJCskJtBvO7S3qKvdAxyNr60npJuFT06rPB8ouYJfI2rEzONcJURmtI2yw/exec";
+
+  fetch(
+    `${BASE_URL}?path=Sheet1&action=${action}&${params
+      .map((param) => `${param.key}=${param.value}`)
+      .join("&")}`
+  );
+};
+
 export const dataMataKuliah = [
   {
     KodeMataKuliah: "CIF62004",

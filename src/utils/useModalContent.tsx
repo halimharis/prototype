@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   CurrentDesign,
   CurrentUserContext,
   StepContext,
+  StepThreeReady,
   StepTwoPassed,
   TimeContext,
 } from "../App";
@@ -16,6 +17,18 @@ export const useModalContent = (closeFunction: () => void) => {
   const { nextStep, step } = useContext(StepContext);
   const { passed } = useContext(StepTwoPassed);
   const { initCount } = useContext(TimeContext);
+  const [isDisableButton, setIsDisableButton] = useState(true);
+  const { toggleReady } = useContext(StepThreeReady);
+
+  useEffect(() => {
+    if (step !== 6) return;
+
+    const timer = setTimeout(() => {
+      setIsDisableButton(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [step]);
 
   const content = [
     {
@@ -36,7 +49,7 @@ export const useModalContent = (closeFunction: () => void) => {
     {
       title: `Tugas 1`,
       description: [
-        "Anda merupakan mahasiswa SIAM yang sudah login kedalam website SIAM dan ingin menambahkan mata kuliah pada kartu rencana studi anda, buka halaman tambah mata kuliah agar anda dapat menambahkan mata kuliah pada kartu rencana studi anda",
+        "Anda merupakan mahasiswa SIAM yang sudah login kedalam website SIAM dan ingin menambahkan mata kuliah pada kartu rencana studi anda, buka halaman kartu rencana studi dan tambahkan mata kuliah yang anda inginkan",
       ],
       button: {
         label: "OKE, MENGERTI",
@@ -96,6 +109,7 @@ export const useModalContent = (closeFunction: () => void) => {
         label: "OKE, MENGERTI",
         onClick: () => {
           closeFunction();
+          toggleReady();
           initCount();
         },
       },
@@ -104,6 +118,7 @@ export const useModalContent = (closeFunction: () => void) => {
       title: `Selesai`,
       description: [`Terima kasih banyak ${currentUser?.Nama}`],
       button: {
+        disabled: isDisableButton,
         label: "KEMBALI KE AWAL",
         onClick: () => {
           window.location.reload();

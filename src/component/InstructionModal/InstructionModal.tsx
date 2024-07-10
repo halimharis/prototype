@@ -43,6 +43,7 @@ export default function InstructionModal() {
           <>{currentContent.componentHelper}</>
         )}
         <button
+          disabled={currentContent.button?.disabled === true}
           onClick={currentContent.button?.onClick}
           className="py-3 font-bold px-3 border rounded-md bg-blue text-white hover:opacity-90"
         >

@@ -1,7 +1,7 @@
 import { useModal } from "../../utils/modal";
 import BasicModal from "../BasicModal/BasicModal";
 import { SubmitHandler, useForm } from "react-hook-form";
-import axios from "axios";
+import { callApi } from "../../utlils";
 
 export interface IParticipantData {
   Nim: number;
@@ -32,15 +32,18 @@ export default function ProfileFormModal({
     const date = new Date();
     const tanggalSubmit = formatter.format(date);
 
-    return axios
-      .post(
-        "https://sheet.best/api/sheets/4e2181cc-a70c-4f45-aa09-9fdc6853cfbf",
-        {
-          ...dataResponden,
-          Tanggal: tanggalSubmit,
-        }
-      )
-      .then((response) => setCurrentPartipant(response.data[0]));
+    callApi("profile", [
+      { key: "Nim", value: dataResponden.Nim.toString() },
+      { key: "Nama", value: dataResponden.Nama },
+      { key: "Jurusan", value: dataResponden.Jurusan },
+      { key: "Tanggal", value: tanggalSubmit },
+    ]);
+
+    setCurrentPartipant({
+      Nim: dataResponden.Nim,
+      Nama: dataResponden.Nama,
+      Jurusan: dataResponden.Jurusan,
+    });
   };
 
   return (
