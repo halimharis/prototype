@@ -136,7 +136,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex justify-center w-full mb-8">
+    <div className="flex justify-center w-full mb-8 font-arial">
       <TimeContext.Provider value={{ startTime, countTime, initCount }}>
         <CurrentDesign.Provider value={{ isKontrol, toTreatment, toControl }}>
           <CurrentUserContext.Provider value={currentP}>
