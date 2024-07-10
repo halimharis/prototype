@@ -102,7 +102,9 @@ export const useModalContent = (closeFunction: () => void) => {
     {
       title: `Tugas 3`,
       description: [
-        "Anda merupakan mahasiswa SIAM yang sudah login kedalam website SIAM dan ingin melihat hasil studi anda, inputkan pada kolom dibawah ini berapa banyak nilai A yang anda miliki pada studi studi anda sebelumnya dengan mata kuliah ber sks 4",
+        `Anda merupakan mahasiswa SIAM yang sudah login kedalam website SIAM dan ingin melihat hasil studi anda, inputkan pada kolom dibawah ini berapa banyak nilai ${
+          isKontrol ? "" : "dibawah"
+        } A yang anda miliki pada studi studi anda sebelumnya dengan mata kuliah ber sks 4`,
       ],
       componentHelper: <InstructionTaskThreeHelper />,
       button: {
